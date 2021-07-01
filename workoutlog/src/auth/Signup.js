@@ -5,17 +5,21 @@ const Signup = (props) => {
     const [username, setUsername] = useState(''); //2
     const [password, setPassword] = useState(''); //2
 
+    let handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(username, password);
+    }
     return(
         <div>
             <h1>Sign Up</h1>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username">Username</Label>
-                    <Input name="username" value={username}/> 
+                    <Input onChange={(e) =>setUsername(e.target.value)} name="username" value={username}/> 
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input name="password" value={password}/> 
+                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/> 
                 </FormGroup>
                 <Button type="submit">Sign Up</Button>
             </Form>
