@@ -4,6 +4,10 @@ import Auth from './auth/Auth'
 
 function App() {
   const [sessionToken, setSessionToken] = useState(''); //1
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('');
+  }
 
   useEffect(() => { //2
     if(localStorage.getItem('token')) {
